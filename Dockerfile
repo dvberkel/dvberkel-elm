@@ -1,6 +1,6 @@
 FROM node 
 
-ARG UGLIFY_VERSION=0.1.5
+ARG UGLIFYJS_VERSION=3.12.4
 ARG ELM_TEST_VERSION=0.19.1
 
 # Download and install Elm
@@ -13,7 +13,7 @@ USER elm
 WORKDIR /home/elm
 
 # Install additional Elm tools
-RUN npm config set prefix /home/elm/.local && npm install --global uglify@${UGLIFY_VERSION} elm-test@${ELM_TEST_VERSION}
+RUN npm config set prefix /home/elm/.local && npm install --global uglify-js@${UGLIFYJS_VERSION} elm-test@${ELM_TEST_VERSION}
 
 # Make available Elm tools available on the path
 COPY .bashrc .bashrc
